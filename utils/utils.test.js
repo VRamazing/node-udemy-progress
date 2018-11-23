@@ -3,16 +3,29 @@ const expect = require('expect');
 
 it('should add two numbers', () => {
 	var res = utils.add(33, 11);
-	// throw new Error('Value not correct');
-	if(res !== 44){
-		throw new Error(`Expected 44 but got ${res}`)
-	}
+	expect(res).toBe(44).toBeA('number');
 });
 
 it('should multiply two numbers', () => {
 	var res = utils.mul(33, 11);
-	// throw new Error('Value not correct');
-	if(res !== 363){
-		throw new Error(`Expected 363 but got ${res}`)
-	}
+	expect(res).toBe(363).toBeA('number');
+});
+
+it('should async add two numbers', (done) => {
+	utils.asyncAdd(4, 3,  (sum) => {
+		expect(sum).toBe(7).toBeA('number');
+		done();
+	})
+});
+
+it('should square', () => {
+	var res = utils.square(5);
+	expect(res).toBe(25).toBeA('number');
+	var res = utils.square(6);
+	expect(res).toBe(36).toBeA('number');
+});
+
+it('should have first name and last name', () => {
+	var res = utils.setName({age: 22, occupation: 'engineer'}, "vignesh ramesh");
+	expect(res).toInclude({firstName: "vignesh", lastName: "ramesh"})
 });
