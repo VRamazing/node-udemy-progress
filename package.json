@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "mocha": "^5.2.0",
+    "rewire": "^2.5.2",
     "supertest": "^3.3.0"
   },
   "dependencies": {
